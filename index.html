@@ -6,74 +6,97 @@
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<link href="./calculator.css" media="all" rel="stylesheet" type="text/css" />	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="calculator.js"></script>
 </head>
 <style>
-	@font-face { font-family: SF Digital Readout Medium Oblique; src: url('SF Digital Readout Medium Oblique.ttf');}
-	body { background: #8e8a88; }
 
-	#calc {
-		margin-left:40px;
-	}
-
-	#calcImg {
-		z-index:1;
-	}
-
-
-	#display {
-		/* border: 1px solid red; */
-		position: absolute;
-		top: 150px;
-		left: 80px;
-		width: 333px;
-		height: 70px;
-		/* z-index: 10; */   /* so it lays on top of bkgd image... not stricly necessary?? */
-		font-family: SF Digital Readout Medium Oblique;
-		font-size: 6em;
-		direction: rtl;  /* Right to Left */
-	}
 </style>
 <script>
-	
+/*	
 	$(function() {
-		var $display = $('#display');
-		var operators = ['+', '-', '*', '/'];
-		var operandA,
-			operandB;
-		var operandFlag;	// false: on operandA;  true: on operandB
+		var $display = $( '#display' );
+		var operators = [ '+', '-', '*', '/' ];
+		var result;
+		var started = false;
+		var dirtyResult;
+		var withinNumber;
+		var number;
 
-		var reset = function(){
-		    operandA = 0;  operandB = 0; oprandFlag = false;
+
+		var reset = function() {
+		    result = 0;
+		    started = false;
+		    dirtyResult = false;	
+		    withinNumber = false;
+		    number = 0;
 		};
 
 		reset();
 
-		$('area').click(function() { 
+		$( 'area' ).click( function() { 
 		    var id = $(this).attr('id'); 
 		    var whichOperator;
 
-		    console.log("-->" + id); 
+		    console.log( "-->" + id ); 
 
 
 		    if ( id === 'CA' ) {						// Reset any calculation in progress
 		    	reset();
+		    	$display.text ( result );
 		    } else {
-		    	whichOperator = operators.indexOf(id);
-	    		if ( whichOperator > -1 ) {				// An operator was pressed
-		    		console.log("___>" + operators[whichOperator]); 
+		    	whichOperator = operators.indexOf( id );
+	    		if ( whichOperator > -1 ) {				// An operator was pressed; 
 
+					console.log( ' result befoer ' + result ) ; 
+		    		if ( started ) {
+		    			console.log('in started block');
+		    			if ( ! dirtyResult ) {
+		    				result = number;
+		    			}
+	 		    		if ( id === '+' ) {
+	 		    			result += number;
+			    		}
+			    		else if ( id === '-' ) {
+			    			result -= number;
+			    		} 
+			    		else if ( id === '*' ) {
+			    			result = result * number;
+			    		}
+			    		else if ( id === '/' ) {
+			    			result = result / number;
+			    		}
+
+			    		dirtyResult = true;	    			
+		    		}
+
+		    		withinNumber = false;
+					console.log( ' result after ' + result ) ; 
+		    		$display.text ( result );
+	    		} else {								// A number was pressed
+	    			if ( ! withinNumber ) {				// If its the first digit of a new number
+	    				number = id * 1; 		// store it, cast it to Integer trick
+	    				started = true;			// 
+	    			} else {							// Not the first digit of a number
+	    				number = number * 10;
+	    				number += ( id * 1 );
+	    			}
+
+	    			withinNumber = true;
+
+	    			$display.text( number );
 	    		}
 		    }
 
-		    $display.text(id);
 
 
 		    // To prevent default action 
 		  	return false; 
 		});
-	});
 
+	});
+*/
 
 </script>
 <body>
@@ -101,7 +124,7 @@
 
 	</div>	
 
-	<div id="display">1234567890</div>
+	<div id="display">0</div>
 </body>
 </html>
 
