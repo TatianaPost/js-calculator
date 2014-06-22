@@ -1,4 +1,6 @@
-	@font-face { font-family: SF Digital Readout Medium Oblique; src: url('SF Digital Readout Medium Oblique.ttf');}
+/*	@font-face { font-family: SF Digital Readout Medium Oblique; src: url('SF Digital Readout Medium Oblique.ttf');} */
+	@font-face { font-family: SF Digital Readout Heavy; src: url('SF Digital Readout Heavy.ttf');}
+
 
 	body { background: #8e8a88; }
 
@@ -14,12 +16,12 @@
 	#display {
 		/* border: 1px solid red;  */
 		position: absolute;
-		top: 130px;
+		top: 155px;
 		left: 80px;
 		width: 330px;
 		height: 70px;
 		/* z-index: 10; */   /* so it lays on top of bkgd image... not stricly necessary?? */
-		font-family: SF Digital Readout Medium Oblique;
+		font-family: SF Digital Readout Heavy;
 		font-size: 6em;
 		direction: rtl;  /* Right to Left */
 	}

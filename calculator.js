@@ -1,6 +1,7 @@
 $(function() {
 
-	var displayer = function() {				// The calculators main display (shows number presses & results)
+	// The calculators main display (shows number presses & results)
+	var displayer = function() {				
 		var $el = $( '#display' );
 		var sProgress;							// The ongoing calculations between each clear/reset to show.
 
@@ -17,6 +18,7 @@ $(function() {
 	}();
 
 
+	// Get input from either mouse clicks or keyboard
 	var input = function() {
 		var $mouseInput = $( 'area' );
 		var lastCalcKeyPress;
@@ -39,6 +41,8 @@ $(function() {
 
 	}();
 
+
+	// Main calculator functionality; uses the displayer and input objects
 	var calc = function() {
 		var result;										// Ongoing result of calculations
 		var started;									// Whether the first number has been entered yet
@@ -107,8 +111,8 @@ $(function() {
 			var operators = [ '+', '-', '*', '/' ];
 			var whichOperator;
 
-			if ( whichBtn === 'CA' ) {					// Reset any calculation in progress
-				reset();
+			if ( whichBtn === 'CA' ) {					// The Clear key was pressed;
+				reset();		// Reset any calculation in progress
 			} else {
 				whichOperator = operators.indexOf( whichBtn );
 				if ( whichOperator > -1 ) {				// An operator was pressed;
