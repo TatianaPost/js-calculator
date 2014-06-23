@@ -13,15 +13,19 @@ body { background: #8e8a88; }
 }
 
 
+
+.calcDisplay {
+	font-family: SF Digital Readout Heavy;
+	position: absolute;	
+	/* border: 1px solid red; 	 */
+}
+
 #display {
-	/* border: 1px solid red;  */
-	position: absolute;
 	top: 155px;
 	left: 80px;
 	width: 330px;
 	height: 70px;
 	/* z-index: 10; */   /* so it lays on top of bkgd image... not stricly necessary?? */
-	font-family: SF Digital Readout Heavy;
 	font-size: 6em;
 	direction: rtl;  /* Right to Left */
 }
@@ -29,12 +33,18 @@ body { background: #8e8a88; }
 /* Where we display a '-' for negative numbers */
 #sign {
 	color: #222;
-	position: absolute;
-	/* border: 1px solid red; */
 	top: 115px;
-	left: 80px;
+	left: 85px;
 	width: 40px;
 	height: 40px;
-	font-family: SF Digital Readout Heavy;
+	font-size: 4em;
+}
+
+#showKeyPress {
+	color: #32555b;
+	top: 100px;
+	left: 380px;
+	width: 40px;
+	height: 40px;
 	font-size: 4em;
 }

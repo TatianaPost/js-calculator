@@ -2,8 +2,9 @@ $(function() {
 
 	// The calculators main display (shows number presses & results)
 	var displayer = function() {				
-		var $el = $( '#display' );
-		var $sign = $( '#sign' );		// Where we display whether number is positive or negative
+		var $el = $( '#display' );				// The main number display area
+		var $sign = $( '#sign' );				// Where we display whether number is positive or negative
+		var $press = $( '#showKeyPress' );		// Where to show a key has been pressed
 		var sProgress;					// TODO: The ongoing calculations between each clear/reset to show.
 
 		var reset = function() { 
@@ -21,7 +22,8 @@ $(function() {
 			$el.text( aNumber );
 		};
 
-		var showSign = function( isNegative ) {	
+
+		var showSign = function( isNegative ) {		// Show or hide '-' for positive/negative number.
 			if ( isNegative ) {
 				$sign.text('-');
 			} else {
@@ -30,9 +32,17 @@ $(function() {
 		};
 
 
+		var showPress = function( ) {				// Little visualization for any keypress
+			$press.text('.').fadeOut("fast", function() {
+				$press.fadeIn("fast").text(' ');
+			});
+
+		};
+
 		return {
 			reset : reset,
 			showSign : showSign,
+			showPress: showPress,
 			show : showNumber
 		};
 	}();
@@ -51,7 +61,7 @@ $(function() {
 
 		$( document ).keypress( function( event ) {
 			lastCalcKeyPress = String.fromCharCode( event.which );
-			console.log ( "keybaord: " + String.fromCharCode( event.which ) );
+			console.log ( "keyboard: " + String.fromCharCode( event.which ) );
 			calc.press ( lastCalcKeyPress );
 		});
 
@@ -147,6 +157,7 @@ $(function() {
 			var operators = [ '+', '-', '*', '/', '=', 'i' ];
 			var whichOperator;
 
+			displayer.showPress();
 			if ( whichBtn === 'CA' ) {					// The Clear key was pressed;
 				reset();		// Reset any calculation in progress
 			} else {
