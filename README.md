@@ -5,10 +5,10 @@
 
 These are the buttons that work:
 
-CA - clear
+- CA - clear
 
-the digits
+- the digits
 
-The simple operators: +, -, *, /
+- The simple operators: +, -, *, /
 
 
