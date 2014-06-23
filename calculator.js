@@ -3,16 +3,36 @@ $(function() {
 	// The calculators main display (shows number presses & results)
 	var displayer = function() {				
 		var $el = $( '#display' );
-		var sProgress;							// The ongoing calculations between each clear/reset to show.
+		var $sign = $( '#sign' );		// Where we display whether number is positive or negative
+		var sProgress;					// TODO: The ongoing calculations between each clear/reset to show.
 
-		var reset = function() { sProgress = ''; };
+		var reset = function() { 
+			sProgress = '';
+			$sign.text('');
+		};
 
 		var showNumber = function( aNumber ) {
+			console.log ( 'Result to show: ' + aNumber );
+			var isNegative = ( aNumber < 0 );
+
+			showSign ( isNegative ) ;
+
+			if ( isNegative ) { aNumber *= -1; } // So we don't show negative numbers in main display area
 			$el.text( aNumber );
 		};
 
+		var showSign = function( isNegative ) {	
+			if ( isNegative ) {
+				$sign.text('-');
+			} else {
+				$sign.text('');
+			}
+		};
+
+
 		return {
 			reset : reset,
+			showSign : showSign,
 			show : showNumber
 		};
 	}();
@@ -50,6 +70,7 @@ $(function() {
 		var newNumber;
 		var isFirstNumber;								// Whether the last number entered was the first in a possible ongoing series of calculations.
 		var lastOperator;								// Stores the last operation to eval before moving on to new one
+		var isNegative;									// Set to true if very first key entry is - (for ensuing negative number)
 
 		var reset = function() {
 			result = 0;
@@ -57,6 +78,7 @@ $(function() {
 			withinNumber = false;
 			newNumber = 0;
 			isFirstNumber = true;
+			isNegative = false;
 			lastOperator = '';
 			displayer.reset();
 			displayer.show( result );
@@ -64,29 +86,41 @@ $(function() {
 
 
 		var handleNumberPress = function( whichBtn ) {
+			whichBtn = whichBtn * 1;			// Typecast it into a number
+
 			if ( ! withinNumber ) {				// If its the first digit of a new number
-				newNumber = whichBtn * 1;		// store it, cast it to Integer trick
+				newNumber = whichBtn;			// store it
 				started = true;			// 
 			} else {							// Not the first digit of a number
 				newNumber = newNumber * 10;
-				newNumber += ( whichBtn * 1 );
+				newNumber += whichBtn;
 			}
 
 			withinNumber = true;
-			displayer.show( newNumber );
+			displayer.show( isNegative ? ( newNumber * -1) : newNumber );
 		};
 
 
 		var handleOperatorPress = function( whichBtn ) {
+			if ( whichBtn === 'i' ) {	// invert; turn positive to negative & vice-versa
+				isNegative = !isNegative;
+				displayer.showSign( isNegative );
+				return;
+			}
+
+			// else
 			withinNumber = false;
 
-			if ( started ) {
+			if ( started ) {			// started is true once any number has been entered
 				if ( isFirstNumber ) {				// If the last number we got was the first after a reset
 					result = newNumber;
+					if ( isNegative ) result *= -1;
 					isFirstNumber = false;
 					lastOperator = whichBtn;
 				}
 				else {
+					if ( isNegative ) newNumber *= -1;	// turn result into its real value before computations
+
 					if ( lastOperator === '+' ) {
 						result = result + newNumber;
 					}
@@ -98,17 +132,19 @@ $(function() {
 					}
 					else if ( lastOperator === '/' ) {
 						result = result / newNumber;
-					}
+					} 
 
 					lastOperator = whichBtn;
 				}
 				displayer.show( result );
-			}
+
+				isNegative = false;					// reset after displaying
+			} 
 		};
 
 
 		var handleCalculatorButtonPress = function ( whichBtn ) {
-			var operators = [ '+', '-', '*', '/' ];
+			var operators = [ '+', '-', '*', '/', '=', 'i' ];
 			var whichOperator;
 
 			if ( whichBtn === 'CA' ) {					// The Clear key was pressed;

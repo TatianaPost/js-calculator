@@ -1,27 +1,40 @@
 /*	@font-face { font-family: SF Digital Readout Medium Oblique; src: url('SF Digital Readout Medium Oblique.ttf');} */
-	@font-face { font-family: SF Digital Readout Heavy; src: url('SF Digital Readout Heavy.ttf');}
+@font-face { font-family: SF Digital Readout Heavy; src: url('SF Digital Readout Heavy.ttf');}
 
 
-	body { background: #8e8a88; }
+body { background: #8e8a88; }
 
-	#calc {
-		margin-left:40px;
-	}
+#calc {
+	margin-left:40px;
+}
 
-	#calcImg {
-		z-index:1;
-	}
+#calcImg {
+	z-index:1;
+}
 
 
-	#display {
-		/* border: 1px solid red;  */
-		position: absolute;
-		top: 155px;
-		left: 80px;
-		width: 330px;
-		height: 70px;
-		/* z-index: 10; */   /* so it lays on top of bkgd image... not stricly necessary?? */
-		font-family: SF Digital Readout Heavy;
-		font-size: 6em;
-		direction: rtl;  /* Right to Left */
-	}
+#display {
+	/* border: 1px solid red;  */
+	position: absolute;
+	top: 155px;
+	left: 80px;
+	width: 330px;
+	height: 70px;
+	/* z-index: 10; */   /* so it lays on top of bkgd image... not stricly necessary?? */
+	font-family: SF Digital Readout Heavy;
+	font-size: 6em;
+	direction: rtl;  /* Right to Left */
+}
+
+/* Where we display a '-' for negative numbers */
+#sign {
+	color: #222;
+	position: absolute;
+	/* border: 1px solid red; */
+	top: 115px;
+	left: 80px;
+	width: 40px;
+	height: 40px;
+	font-family: SF Digital Readout Heavy;
+	font-size: 4em;
+}
