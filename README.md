@@ -2,6 +2,7 @@
 
 #### A simple implementation to flex some JQuery, HTML, & CSS
 
+#### Idea from http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator
 
 These are the buttons that work:
 
