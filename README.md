@@ -22,10 +22,12 @@
 - hit 'i' on the keyboard or press the '+/-' part of the image to indicate negative numbers
 
 
-**What it doesn't do yet:**
+** Limitations: ** 
 
-- Even though you can enter numbers via mouse-click on image or keyboard, keyboard entry is not filtered out for error checks.
+- Even though you can enter numbers via keyboard or mouse-click on image, keyboard entry is not filtered out for error checks.
 
 - Calculations are pretty much limited to whole numbers; fractional numbers will scroll off-screen.
+
+- Small browser screens are problematic;  digits display in a fixed location.  Best viewed on a bigger than phone page.
 
 
