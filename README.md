@@ -2,7 +2,7 @@
 
 #### A simple implementation to flex some JQuery, HTML, & CSS
 
-- Idea from [the Odin Project](http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator)
+- Idea from <a href="http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator" target="_blank">this Odin Project chore.</a>
 
 - Live preview [here](http://htmlpreview.github.io/?https://github.com/afshinator/js-calculator/blob/master/index.html), though for some reason the font doesnt load on the preview!
 
@@ -21,4 +21,8 @@ These are the buttons that work:
 
 What it doesn't do yet:
 
-- Even though you can enter numbers via mouse-click on image or keyboard, keyboard entry is not filtered out for error checks. 
+- Even though you can enter numbers via mouse-click on image or keyboard, keyboard entry is not filtered out for error checks.
+
+- Calculations are pretty much limited to whole numbers; fractional numbers will scroll off-screen.
+
+
