@@ -1,5 +1,5 @@
 /*	@font-face { font-family: SF Digital Readout Medium Oblique; src: url('SF Digital Readout Medium Oblique.ttf');} */
-@font-face { font-family: SF Digital Readout Heavy; src: url('SF Digital Readout Heavy.ttf');}
+@font-face { font-family: SF Digital Readout Heavy; src: url('./SF Digital Readout Heavy.ttf');}
 
 
 body { background: #8e8a88; }
