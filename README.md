@@ -2,6 +2,8 @@
 
 #### A simple implementation to flex some JS, JQuery, ...
 
+![alt text](https://github.com/afshinator "JS-Calculator screen shot")
+
 - Idea from <a href="http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator" target="_blank">this Odin Project challenge.</a>
 
 - Live preview [here](http://htmlpreview.github.io/?https://github.com/afshinator/js-calculator/blob/master/index.html), though for some reason the font doesnt load on the preview!
@@ -20,7 +22,7 @@
 - hit 'i' on the keyboard or press the '+/-' part of the image to indicate negative numbers
 
 
-What it doesn't do yet:
+**What it doesn't do yet:**
 
 - Even though you can enter numbers via mouse-click on image or keyboard, keyboard entry is not filtered out for error checks.
 
