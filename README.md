@@ -2,7 +2,7 @@
 
 #### A simple implementation to flex some JS, JQuery, ...
 
-![alt text](https://github.com/afshinator "JS-Calculator screen shot")
+![Screenshot](https://github.com/afshinator/js-calculator/blob/master/img/calc-shot.png "JS-Calculator screen shot")
 
 - Idea from <a href="http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator" target="_blank">this Odin Project challenge.</a>
 
