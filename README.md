@@ -4,7 +4,7 @@
 
 #### Idea from http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator
 
-Live preview (here)[http://htmlpreview.github.io/?https://github.com/afshinator/js-calculator/blob/master/index.html] though for some reason the font doesnt load on the preview!
+Live preview [here](http://htmlpreview.github.io/?https://github.com/afshinator/js-calculator/blob/master/index.html), though for some reason the font doesnt load on the preview!
 
 These are the buttons that work:
 
