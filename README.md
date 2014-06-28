@@ -1,12 +1,13 @@
 ## A javascript calculator in the browser
 
-#### A simple implementation to flex some JQuery, HTML, & CSS
+#### A simple implementation to flex some JS, JQuery, ...
 
-- Idea from <a href="http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator" target="_blank">this Odin Project chore.</a>
+- Idea from <a href="http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator" target="_blank">this Odin Project challenge.</a>
 
 - Live preview [here](http://htmlpreview.github.io/?https://github.com/afshinator/js-calculator/blob/master/index.html), though for some reason the font doesnt load on the preview!
 
-These are the buttons that work:
+
+#### These are the buttons that work:
 
 - CA - clear
 
